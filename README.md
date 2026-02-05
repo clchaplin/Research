@@ -2,7 +2,7 @@
 
 This repository contains the full code pipeline used in the study:
 
-[insert finalised paper title]
+[INSERT FINAL TITLE]
 
 It includes all the steps used to clean the phenotype data, define the case and control phenotypes, and perform health-outcome analyses. The data used for this analysis cannot be shared due to confidentiality, but all scripts and workflow details needed to reproduce the analysis on permitted datasets are provided.
 
@@ -16,9 +16,6 @@ It includes all the steps used to clean the phenotype data, define the case and 
 
 - `03_health_outcomes_analysis/`  
   Scripts analysing health outcomes in cases vs controls.
-
-- `README.md`  
-  Project documentation.
 
 
 
@@ -71,15 +68,15 @@ Combines processed phenotype outcomes with demographic information to create a u
 2. Case–Control Definition (folder: case_control_creation)
 
 2.1_define_cALT_cases_for_GWAS.R
-Defines cases with chronic ALT elevation (cALT) according to study-specific thresholds and temporal rules.
+Defines cases with chronic ALT elevation (cALT) according to clinical and temporal definitions and exclusions as outlined in study methods.
 
 2.2_define_control_group_for_GWAS.R
 Constructs a high-quality control cohort by excluding individuals with liver disease, significant alcohol intake, or other confounding medical conditions.
 
 | Script | Purpose | Input | Output |
 |------|--------|------|-------|
-| `2.1_define_cALT_cases_for_GWAS.R` | Identifies chronic ALT elevation (cALT) cases using study-specific thresholds and temporal criteria | Cleaned clinical and laboratory dataset | cALT case cohort |
-| `2.2_define_control_group_for_GWAS.R` | Constructs a control cohort by excluding individuals with liver disease, alcohol misuse, or other confounding conditions | Cleaned clinical dataset | High-quality control cohort |
+| `2.1_define_cALT_cases_for_GWAS.R` | Identifies chronic ALT elevation (cALT) cases using study-specific thresholds and temporal criteria | Cleaned ALT dataset | cALT case cohort |
+| `2.2_define_control_group_for_GWAS.R` | Constructs a control cohort by excluding individuals with liver disease, alcohol misuse, or other confounding conditions | Cleaned ALT values dataset | control cohort |
 
 3. Health Outcomes Analysis (folder: health_outcomes_analysis)
 
@@ -100,12 +97,11 @@ This repository uses R.
 Recommended version: R ≥ 4.0
 Required R packages (as used in the analysis):
 
-data.table
-dplyr
-ggplot2
-readr
-optparse
-table1 
+- data.table
+- dplyr
+- tidyverse
+- table1
+- readxl
 
 
 Data availability 
