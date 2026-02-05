@@ -6,35 +6,20 @@ This repository contains the full code pipeline used in the study:
 
 It includes all the steps used to clean the phenotype data, define the case and control phenotypes, and perform health-outcome analyses. The data used for this analysis cannot be shared due to confidentiality, but all scripts and workflow details needed to reproduce the analysis on permitted datasets are provided.
 
-Repository structure:
-├── 01_data_cleaning/
-│   ├── 1.1_clean_baseline_demographics.R
-│   ├── 1.2_compute_mean_quantitative_variables_from_primary_care.R
-│   ├── 1.3_create_NAFLD_cohort_excluding_ALD.R
-│   └── 1.4_join_binary_and_quantitative_outcomes_to_demographics.R
-│
-├── 02_case_control_phenotype_definition/
-│   ├── 2.1_define_cALT_cases_for_GWAS.R
-│   └── 2.2_define_control_group_for_GWAS.R
-│
-└── 03_health_outcomes_analysis/
-    ├── 3.1_join_health_outcomes_to_cases_and_controls.R
-    └── 3.2_cases_vs_controls_health_outcomes_analysis.R
+## Repository Structure
 
+- `01_data_cleaning/`  
+  Scripts for cleaning demographic and clinical phenotype data.
 
-    ├── 01_data_cleaning/
-│   ├── 1.1_clean_baseline_demographics.R
-│   ├── 1.2_compute_mean_quantitative_variables_from_primary_care.R
-│   ├── 1.3_create_NAFLD_cohort_excluding_ALD.R
-│   └── 1.4_join_binary_and_quantitative_outcomes_to_demographics.R
-│
-├── 02_case_control_phenotype_definition/
-│   ├── 2.1_define_cALT_cases_for_GWAS.R
-│   └── 2.2_define_control_group_for_GWAS.R
-│
-├── 03_health_outcomes_analysis/
-│   ├── 3.1_join_health_outcomes_to_cases_and_controls.R
-│   └── 3.2_cases_vs_controls_health_outcomes_analysis.R
+- `02_case_control_phenotype_definition/`  
+  Scripts defining cALT cases and control cohorts.
+
+- `03_health_outcomes_analysis/`  
+  Scripts analysing health outcomes in cases vs controls.
+
+- `README.md`  
+  Project documentation.
+
 
 
 ## Data Provenance and Preprocessing
@@ -75,9 +60,11 @@ Combines processed phenotype outcomes with demographic information to create a u
 
 
 | Script | Purpose | Input | Output |
-|--------|--------|------|-------|
-| `01_data_cleaning/1.1_clean_baseline_demographics.R` | Cleans demographic data | Raw demographic file | Cleaned demographic dataset |
-| `01_data_cleaning/1.2_compute_mean_quantitative_variables_from_primary_care.R` | Computes lifetime mean values for quantitative markers | Pre-cleaned quantitative data | Summary table of mean values |
+|------|--------|------|-------|
+| `1.1_clean_baseline_demographics.R` | Cleans and formats demographic variables (age, sex, ethnicity) | Raw demographic data | Cleaned demographic dataset |
+| `1.2_compute_mean_quantitative_variables_from_primary_care.R` | Computes lifetime mean values for quantitative clinical markers (e.g. ALT, AST, bilirubin, weight) | Pre-cleaned primary care quantitative data | Summary table of lifetime mean values |
+| `1.3_create_NAFLD_cohort_excluding_ALD.R` | Creates NAFLD cohort and excludes individuals with alcohol-related liver disease | ICD-based liver disease phenotypes | NAFLD cohort definition |
+| `1.4_join_binary_and_quantitative_outcomes_to_demographics.R` | Merges demographic data with binary and quantitative phenotype outcomes | Cleaned demographics and phenotype datasets | Unified analysis-ready dataset |
 
 
 
@@ -89,6 +76,10 @@ Defines cases with chronic ALT elevation (cALT) according to study-specific thre
 2.2_define_control_group_for_GWAS.R
 Constructs a high-quality control cohort by excluding individuals with liver disease, significant alcohol intake, or other confounding medical conditions.
 
+| Script | Purpose | Input | Output |
+|------|--------|------|-------|
+| `2.1_define_cALT_cases_for_GWAS.R` | Identifies chronic ALT elevation (cALT) cases using study-specific thresholds and temporal criteria | Cleaned clinical and laboratory dataset | cALT case cohort |
+| `2.2_define_control_group_for_GWAS.R` | Constructs a control cohort by excluding individuals with liver disease, alcohol misuse, or other confounding conditions | Cleaned clinical dataset | High-quality control cohort |
 
 3. Health Outcomes Analysis (folder: health_outcomes_analysis)
 
@@ -98,6 +89,10 @@ Links health-outcome variables (e.g., diagnoses, events, biomarkers) to previous
 3.2_cases_vs_controls_health_outcomes_analysis.R
 Performs statistical comparisons between cALT cases and controls, producing summary tables and results for baseline characteristics and clinical outcomes.
 
+| Script | Purpose | Input | Output |
+|------|--------|------|-------|
+| `3.1_join_health_outcomes_to_cases_and_controls.R` | Links health outcome phenotypes to defined cases and controls | Case and control cohorts; curated outcome phenotypes | Analysis dataset with health outcomes |
+| `3.2_cases_vs_controls_health_outcomes_analysis.R` | Performs statistical comparisons of health outcomes between cases and controls | Health outcomes analysis dataset | Summary tables and statistical results |
 
 Software Requirements
 
