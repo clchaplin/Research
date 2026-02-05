@@ -25,7 +25,7 @@ Repository structure:
 ## Data Provenance and Preprocessing
 Some of the data used in this analysis was provisionally cleaned and curated by the Genes and Health Team. The majority of phenotypes used for the binary health outcomes (e.g. hypertension, diabetes) were curated by the G&H team (codelist available publicly at: https://docs.google.com/spreadsheets/d/1ipwdF2j_owfr_QbkDYk1rk0TW3KtdfQYVQn-Vf-o38s/edit?gid=750982921#gid=750982921. Health outcome phenotypes generated ourselves include cardiovascular disease, ethnically adjusted BMI categories and NAFLD. 
 
-For quantitative data used in this study, values from primary care were used that had already had the following preprocessing steps applied by the data team prior to our analysis:
+For quantitative data used in this study, values from primary care were used that had already had the following preprocessing steps applied by the G&H data team prior to our analysis:
 1)	Upload data from all available electronic healthcare records including primary and secondary care 
 2)	Exclude non-numeric values 
 3)	Use of custom codelists to identify all occurrences of a specific outcome variable in the electronic health records 
