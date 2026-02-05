@@ -22,6 +22,21 @@ Repository structure:
     └── 3.2_cases_vs_controls_health_outcomes_analysis.R
 
 
+    ├── 01_data_cleaning/
+│   ├── 1.1_clean_baseline_demographics.R
+│   ├── 1.2_compute_mean_quantitative_variables_from_primary_care.R
+│   ├── 1.3_create_NAFLD_cohort_excluding_ALD.R
+│   └── 1.4_join_binary_and_quantitative_outcomes_to_demographics.R
+│
+├── 02_case_control_phenotype_definition/
+│   ├── 2.1_define_cALT_cases_for_GWAS.R
+│   └── 2.2_define_control_group_for_GWAS.R
+│
+├── 03_health_outcomes_analysis/
+│   ├── 3.1_join_health_outcomes_to_cases_and_controls.R
+│   └── 3.2_cases_vs_controls_health_outcomes_analysis.R
+
+
 ## Data Provenance and Preprocessing
 Some of the data used in this analysis was provisionally cleaned and curated by the Genes and Health Team. The majority of phenotypes used for the binary health outcomes (e.g. hypertension, diabetes) were curated by the G&H team (codelist available publicly at: https://docs.google.com/spreadsheets/d/1ipwdF2j_owfr_QbkDYk1rk0TW3KtdfQYVQn-Vf-o38s/edit?gid=750982921#gid=750982921. Health outcome phenotypes generated ourselves include cardiovascular disease, ethnically adjusted BMI categories and NAFLD. 
 
